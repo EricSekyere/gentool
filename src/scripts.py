@@ -38,6 +38,10 @@ def copy_files(sourcefolder, targetfolder=os.getcwd(), filters="*"):
             copy2(file_item, targetfolder)
 
 
+def move_file(source, target=os.getcwd()):
+    if(is_directory(source)):
+            move(source, target)
+
 def move_files(sourcefolder, targetfolder=os.getcwd(), filters="*"):
     if(is_directory(sourcefolder)):
         files = get_files(sourcefolder, filters)
