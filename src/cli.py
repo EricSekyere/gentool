@@ -10,12 +10,12 @@ def gtools():
 
 
 @gtools.command()
-@click.argument("sourcefolder", type = click.Path())
-@click.argument("targetfolder", required=False, type = click.Path())
+@click.argument("source", type = click.Path())
+@click.argument("target", required=False, type = click.Path())
 @click.argument("filters", required=False)
-def moveall(sourcefolder, targetfolder=os.getcwd(), filters = "*"):
+def moveall(source, target=os.getcwd(), filters = "*"):
     click.echo("move all files")
-    move_files(sourcefolder, targetfolder, filters)
+    move_files(source, target, filters)
 
 
 @gtools.command()
@@ -27,11 +27,11 @@ def move(source, target=os.getcwd()):
 
 
 @gtools.command()
-@click.argument("sourcefolder", type=click.Path())
-@click.argument("targetfolder", required=False, type=click.Path())
-def unzip( sourcefolder, targetfolder = os.getcwd()):
-    click.echo("unzip a single folder")
-    unzip_folder(sourcefolder, targetfolder)
+@click.argument("source", type=click.Path())
+@click.argument("target", required=False, type=click.Path())
+def unzip( source, target = os.getcwd()):
+    click.echo("unzip a single ")
+    unzip_folder(source, target)
 
 
 @gtools.command()
