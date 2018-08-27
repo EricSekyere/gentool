@@ -2,7 +2,7 @@
 
 import click
 import os
-from src.scripts import unzip_folder, unzip_folders, log_num, move_files, move_file
+from src.scripts import *
 
 @click.group()
 def gtools():
@@ -21,9 +21,26 @@ def moveall(source, target=os.getcwd(), filters = "*"):
 @gtools.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
-def move(source, target=os.getcwd()):
+def mv(source, target=os.getcwd()):
     click.echo("move file")
     move_file(source, target)
+
+
+@gtools.command()
+@click.argument("source", type=click.Path())
+@click.argument("target", required=False, type=click.Path())
+@click.argument("filters", required=False)
+def copyall(source, target=os.getcwd(), filters="*"):
+    click.echo("copy all files")
+    copy_files(source, target, filters)
+
+
+@gtools.command()
+@click.argument("source", type=click.Path())
+@click.argument("target", required=False, type=click.Path())
+def copy(source, target=os.getcwd()):
+    click.echo("copy file")
+    copy_file(source, target)
 
 
 @gtools.command()

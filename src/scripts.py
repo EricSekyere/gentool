@@ -29,6 +29,10 @@ def unzip_folders(zip_folder_path, target_folder=os.getcwd()):
         unzip_folder(file_item)
 
 
+def copy_file(sourcefolder, targetfolder=os.getcwd()):
+    if(is_directory(sourcefolder)):
+        copy2(sourcefolder, targetfolder)
+
 def copy_files(sourcefolder, targetfolder=os.getcwd(), filters="*"):
     if(is_directory(sourcefolder)):
         files = get_files(sourcefolder, filters)
