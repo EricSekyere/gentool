@@ -37,7 +37,7 @@ def unzip( sourcefolder, targetfolder = os.getcwd()):
 @gtools.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", type=click.Path())
-def unzipall():
+def unzipall(source, target):
     click.echo("Unzip all zip folders")
     unzip_folders(source, target)
 

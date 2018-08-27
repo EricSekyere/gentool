@@ -1,16 +1,13 @@
 import os
 from zipfile import  ZipFile
 from pathlib import Path
-from itertools import zip_longest
-from shutil import copy2, move
-import asyncio
 
 
 def is_directory(path):
     return Path(path).is_dir()
 
 
-async def get_files(directory, filters="*"):
+def get_files(directory, filters="*"):
     if Path(directory).exists() and is_directory(directory):
         files = Path(directory).glob(filters)
         for file in files:
@@ -19,7 +16,7 @@ async def get_files(directory, filters="*"):
         return
 
 
-async def unzip_folder(zip_folder_path, target_folder=os.getcwd()):
+def unzip_folder(zip_folder_path, target_folder=os.getcwd()):
     zip_file = ZipFile(zip_folder_path, 'r')
     zip_file.extractall(target_folder)
     zip_file.close()
