@@ -14,3 +14,5 @@ Add some tests for existing functions
 review and expand functionality
 
 Add Documentation for functions
+
+Automate build/release
