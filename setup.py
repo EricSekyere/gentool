@@ -43,6 +43,6 @@ setup(
     install_requires=DEPENDENCIES,
     keywords='command line interface cli python filesystem ',
     entry_points={
-        'console_scripts': ['gtools=cli:gtools']
+        'console_scripts': ['gtools=src.cli:gtools']
     },
 )
