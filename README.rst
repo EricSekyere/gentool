@@ -1,4 +1,4 @@
-A file system cli
+A general tool CLI
 =================
 
 Current supported features
@@ -6,6 +6,15 @@ Current supported features
 
 -  Move a single/multiple file(s)
 -  Copy a single/multiple file(s)
+-  unzipping file(s)
+
+
+#installation
+pip install gentool
+
+or 
+
+pipenv install gentool
 
 #TODO:
 
