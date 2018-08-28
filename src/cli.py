@@ -6,11 +6,11 @@ from src.scripts import *
 from src.misc import *
 
 @click.group()
-def gtools():
+def gentool():
     pass
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type = click.Path())
 @click.argument("target", required=False, type = click.Path())
 @click.argument("filters", required=False)
@@ -19,7 +19,7 @@ def moveall(source, target=os.getcwd(), filters = "*"):
     move_files(source, target, filters)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
 def mv(source, target=os.getcwd()):
@@ -27,7 +27,7 @@ def mv(source, target=os.getcwd()):
     move_file(source, target)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
 @click.argument("filters", required=False)
@@ -36,7 +36,7 @@ def copyall(source, target=os.getcwd(), filters="*"):
     copy_files(source, target, filters)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
 def copy(source, target=os.getcwd()):
@@ -44,7 +44,7 @@ def copy(source, target=os.getcwd()):
     copy_file(source, target)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
 def unzip( source, target = os.getcwd()):
@@ -52,7 +52,7 @@ def unzip( source, target = os.getcwd()):
     unzip_folder(source, target)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", type=click.Path())
 def unzipall(source, target):
@@ -60,11 +60,11 @@ def unzipall(source, target):
     unzip_folders(source, target)
 
 
-@gtools.command()
+@gentool.command()
 @click.argument("lower_limit", nargs=1)
 @click.argument("upper_limit", nargs=1, required=False)
 def log(lower_limit, upper_limit):
     log_num(lower_limit, upper_limit)
 
 if __name__ ==  "__main__":
-    gtools()
+    gentool()
