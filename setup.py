@@ -2,17 +2,17 @@
 from setuptools import setup, find_packages
 
 LONG_DESCRIPTION = """
-gtools is a simple python general tool cli to interact with the file systems
+gtools is a simple python general tool cli.It can interact with the file systems
 in windows/linux
 
-The tool can perform operations like unnziping files in folders recursively
+The tool currently supports operations like unnziping files in folders recursively
 """.strip()
 
 SHORT_DESCRIPTION = """
-A simple  cli for interacting with the file system.
+A lightweight general command line utility toolbelt
 """
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 URL = "https://github.com/EricSekyere/gtools"
 
