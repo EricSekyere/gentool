@@ -1,20 +1,40 @@
+"""General helper functions.
+"""
 import os
 from zipfile import  ZipFile
 from pathlib import Path
-from shutil import move, copy2
+import shutil
+
+from src.utils.chmod import *
 
 
 def is_directory(path):
-    return Path(path).is_dir()
+    """Checks if path is a directory.
+    Parameters:
+        path (str): The path to test
+    Returns:
+        bool : true if path is a directory or false if not.
+    """
+    return Path(os.path.normpath(path)).is_dir()
 
 
-def get_files(directory, filters="*"):
+def get_files(directory, filters="**/"):
+    """ Grab Files in a specified path.
+    
+    Parameters:
+        directory (str): The directory to grab files from
+        filters (str)all : specify the types of files to grab. wildcards accepted
+        (default will grab everything)
+    Returns:
+        all the files in directory as a generator. if the path is  not a valid directory
+        None will be returned
+    """
     if Path(directory).exists() and is_directory(directory):
         files = Path(directory).glob(filters)
         for file in files:
             yield file
     else:
-        return
+        return None
 
 
 def unzip_folder(zip_folder_path, target_folder=os.getcwd()):
@@ -22,31 +42,35 @@ def unzip_folder(zip_folder_path, target_folder=os.getcwd()):
     zip_file.extractall(target_folder)
     zip_file.close()
 
-
 def unzip_folders(zip_folder_path, target_folder=os.getcwd()):
     zipfiles = get_files(zip_folder_path, "**/*.zip")
     for file_item in zipfiles:
         unzip_folder(file_item)
 
 
-def copy_file(sourcefolder, targetfolder=os.getcwd()):
-    if(is_directory(sourcefolder)):
-        copy2(sourcefolder, targetfolder)
+def copy_file(source, target=os.getcwd()):
+    if(is_directory(source)):
+        shutil.copy(source, target)
 
-def copy_files(sourcefolder, targetfolder=os.getcwd(), filters="*"):
-    if(is_directory(sourcefolder)):
-        files = get_files(sourcefolder, filters)
+def copy_files(source, target=os.getcwd(), filters="**/"):
+
+    if(is_directory(source)):
+        print("starting")
+        files = get_files(source, filters)
         for file_item in files:
-            copy2(file_item, targetfolder)
+            shutil.copy(file_item, target)
 
 
 def move_file(source, target=os.getcwd()):
     if(is_directory(source)):
-            move(source, target)
+            shutil.move(source, target)
 
-def move_files(sourcefolder, targetfolder=os.getcwd(), filters="*"):
-    if(is_directory(sourcefolder)):
-        files = get_files(sourcefolder, filters)
+def move_files(source, target=os.getcwd(), filters="**/"):
+    if(is_directory(source)):
+        files = get_files(source, filters)
         for file_item in files:
-            move(file_item, targetfolder)
+            shutil.move(file_item, target)
 
+#if __name__ == "__main__":
+    #print(is_directory("tests/mocks"))
+    #move_files('tests/mocks/t1',  'tests/mocks/a2')
