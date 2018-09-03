@@ -13,10 +13,10 @@ def gentool():
 
 
 @gentool.command()
+@transform_args('str')
 @click.argument("source", type=click.Path(writable=True, resolve_path=True))
 @click.argument("target", required=False, type=click.Path(writable=True, resolve_path=True))
 @click.argument("filters", required=False, type=click.STRING)
-@transform_args('str')
 def mva(source=os.getcwd(), target=os.getcwd(), filters="**/"):
     """ Move a group files from a directory
 
@@ -25,30 +25,34 @@ def mva(source=os.getcwd(), target=os.getcwd(), filters="**/"):
     move_files(source, target, filters)
 
 
+
+
 @gentool.command()
+@transform_args('str')
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
-@transform_args('str')
 def mv(source, target):
     click.echo("move file")
     move_file(source, target)
 
 
 @gentool.command()
+@transform_args('str')
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
 @click.argument("filters", required=False)
-@transform_args('str')
 def cpa(source, target, filters="**/"):
     #click.echo("copy all files")
     copy_files(str(source), str(target), str(filters))
     click.echo("copy all files")
 
 
+
+
 @gentool.command()
+@transform_args('str')
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
-@transform_args('str')
 def cp(source, target=os.getcwd()):
     click.echo("copy file")
     copy_file(source, target)
@@ -62,10 +66,11 @@ def unzip( source, target = os.getcwd()):
     unzip_folder(source, target)
 
 
+
+@transform_args('str')
 @gentool.command()
 @click.argument("source", type=click.Path())
 @click.argument("target", required=False, type=click.Path())
-@transform_args('str')
 def unzipa(source, target):
     click.echo("Unzip all zip folders")
     unzip_folders(source, target)
