@@ -22,4 +22,4 @@ def transform_args(transform_type):
 def transform_arg(inputarg, action):
     return {
         "str": str(inputarg)
-    }..get(action, inputarg)
+    }.get(action, inputarg)
