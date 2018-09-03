@@ -20,7 +20,6 @@ def transform_args(transform_type):
 
 
 def transform_arg(inputarg, action):
-    func_dict = {
+    return {
         "str": str(inputarg)
-    }
-    return func_dict.get(action, inputarg)
+    }..get(action, inputarg)
