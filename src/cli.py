@@ -43,7 +43,7 @@ def mv(source, target):
 @click.argument("filters", required=False)
 def cpa(source, target, filters="**/"):
     #click.echo("copy all files")
-    copy_files(str(source), str(target), str(filters))
+    copy_files(source, target, filters)
     click.echo("copy all files")
 
 
