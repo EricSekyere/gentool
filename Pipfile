@@ -8,6 +8,7 @@ click = "==6.7"
 twine = "*"
 setuptools = "*"
 tox = "*"
+fs = "*"
 
 [dev-packages]
 
