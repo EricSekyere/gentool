@@ -14,9 +14,9 @@ def gentool():
 
 @gentool.command()
 @transform_args('str')
-@click.argument("source", type=click.Path(writable=True, resolve_path=True))
-@click.argument("target", required=False, type=click.Path(writable=True, resolve_path=True))
-@click.argument("filters", required=False, type=click.STRING)
+@click.argument("source", type=click.Path())
+@click.argument("target", required=False, type=click.Path())
+@click.argument("filters", required=False)
 def mva(source=os.getcwd(), target=os.getcwd(), filters="**/"):
     """ Move a group files from a directory
 

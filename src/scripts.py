@@ -5,7 +5,7 @@ from zipfile import  ZipFile
 from pathlib import Path
 import shutil
 from fs.permissions import Permissions
-from src.utils.chmod import *
+
 
 
 def is_directory(path):
