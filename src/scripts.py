@@ -1,21 +1,24 @@
 """General helper functions.
 """
 import os
-from zipfile import  ZipFile
-from pathlib import Path
 import shutil
-from fs.permissions import Permissions
+import logging
+import fs
+from pathlib import Path
+from zipfile import ZipFile
 
 
 
-def is_directory(path):
+
+def is_directory(dir_path):
     """Checks if path is a directory.
     Parameters:
         path (str): The path to test
     Returns:
         bool : true if path is a directory or false if not.
     """
-    return Path(os.path.normpath(path)).is_dir()
+    isdir = os.path.isdir(dir_path)
+    return isdir
 
 
 def get_files(directory, filters="**/"):
@@ -50,7 +53,7 @@ def unzip_folders(zip_folder_path, target_folder=os.getcwd()):
 
 def copy_file(source, target=os.getcwd()):
     if(is_directory(source)):
-        Permissions.create(0o700)
+        fs.permissions.Permissions.create(0o700)
         shutil.copy(source, target)
 
 def copy_files(source, target=os.getcwd(), filters="**/"):
@@ -59,20 +62,17 @@ def copy_files(source, target=os.getcwd(), filters="**/"):
         print("starting")
         files = get_files(source, filters)
         for file_item in files:
-            shutil.copy(file_item, target)
+            copy_file(file_item, target)
 
 
 def move_file(source, target=os.getcwd()):
     if(is_directory(source)):
-            Permissions.create(0o700)
+            fs.permissions.Permissions.create(0o700)
             shutil.move(source, target)
 
 def move_files(source, target=os.getcwd(), filters="**/"):
-    if(is_directory(source)):
+    if (is_directory(source)):
         files = get_files(source, filters)
         for file_item in files:
-            shutil.move(file_item, target)
+            move_file(file_item, target)
 
-if __name__ == "__main__":
-    print(is_directory("tests/mocks"))
-    move_files('tests/mocks/t1',  'tests/mocks/a2')
