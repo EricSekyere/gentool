@@ -8,6 +8,15 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
+LOG_FORMAT = '%(asctime)s - %(message)s'
+
+logging.basicConfig(filename="cli_debug.log",
+                    filemode='w',
+                    format=LOG_FORMAT,
+                    level=logging.DEBUG)
+
+logger = logging.getLogger()
+
 
 
 def is_directory(dir_path):
@@ -18,6 +27,7 @@ def is_directory(dir_path):
         bool : true if path is a directory or false if not.
     """
     isdir = os.path.isdir(dir_path)
+    logger.debug("Path specified %s", dir_path)
     return isdir
 
 
