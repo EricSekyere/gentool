@@ -9,6 +9,8 @@ twine = "*"
 setuptools = "*"
 tox = "*"
 fs = "*"
+tqdm = "*"
+requests = "*"
 
 [dev-packages]
 pyfakefs = "*"
