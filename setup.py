@@ -12,9 +12,9 @@ SHORT_DESCRIPTION = """
 A lightweight general command line utility toolbelt
 """
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 
-URL = "https://github.com/EricSekyere/gtools"
+URL = "https://github.com/Eric Sekyere/gtools"
 
 DEPENDENCIES = ['Click']
 
@@ -31,11 +31,9 @@ setup(
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Operating System :: POSIX',
-        'Operating System :: MacOS',
         'Operating System :: Unix',
     ],
     packages=find_packages(),
