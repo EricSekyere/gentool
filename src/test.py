@@ -1,5 +1,5 @@
 import unittest
-#from pysrc.scripts import *
+
 
 class TestScripts(unittest.TestCase):
     def setUp(self):

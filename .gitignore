@@ -1,5 +1,5 @@
 __pycache__
-**/mocks/**
+**/src/mocks/**
 **/*.zip
 dist/
 *.egg-info/
