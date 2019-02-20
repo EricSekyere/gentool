@@ -51,6 +51,14 @@ def get_files(directory, filters="**/"):
 
 
 def unzip_folder(zip_folder_path, target_folder=os.getcwd()):
+    """ unzip a single folder.
+
+    Parameters:
+        zip_folder_path (str): The zip folder to unzip
+        target_folder (str): the folder to unzip in(default will be current folder)
+    Returns:
+        An unzipped folder
+    """
     zip_file = ZipFile(zip_folder_path, 'r')
     zip_file.extractall(target_folder)
     zip_file.close()
